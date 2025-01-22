@@ -133,6 +133,7 @@ let dinoPosition = { row: 0, col: 0 }; // Fila 0, columna 0
 let direction = 'right'; // Dirección inicial del dinosaurio
 let musicOn = false;
 
+
 document.addEventListener('keydown', function (event) {
   const { row, col } = dinoPosition;
   let newRow = row;
@@ -272,3 +273,15 @@ function actualizarSidebar(side, photoUrl, phrase, rotationY = 0) {
   phraseElement.textContent = phrase;
   photoElement.style.transform = `rotateY(${rotationY}deg)`;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  let audioPlayer = document.getElementById('audioPlayer');
+  let audioSource = document.getElementById('audioSource');
+
+  // Actualiza la fuente con la nueva canción
+  audioSource.src = "fireproof.mp3";  // Cambia la URL de la canción
+
+  // Reinicia el audio (en caso de que ya esté reproduciéndose) y reproduce la nueva canción
+  audioPlayer.load();  // Esto recarga el nuevo archivo de audio
+  audioPlayer.play();  // Reproduce el nuevo audio
+});
