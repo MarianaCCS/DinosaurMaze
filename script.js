@@ -96,6 +96,16 @@ async function verificarContraseña() {
   if (userHash === Password) {
     document.getElementById('passwordForm').style.display = 'none';  // Oculta el formulario
     document.getElementById('contenidoProtegido').style.display = 'block';  // Muestra el contenido secreto
+
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioSource = document.getElementById('audioSource');
+
+    // Actualiza la fuente con la nueva canción
+    audioSource.src = "fireproof.mp3";  // Cambia la URL de la canción
+
+    // Reinicia el audio (en caso de que ya esté reproduciéndose) y reproduce la nueva canción
+    audioPlayer.load();  // Esto recarga el nuevo archivo de audio
+    audioPlayer.play();  // Reproduce el nuevo audio
   } else {
     alert('Contraseña incorrecta, intenta de nuevo.');
   }
@@ -273,24 +283,3 @@ function actualizarSidebar(side, photoUrl, phrase, rotationY = 0) {
   phraseElement.textContent = phrase;
   photoElement.style.transform = `rotateY(${rotationY}deg)`;
 }
-
-
-// update when the user interacts with the page
-document.addEventListener('DOMContentLoaded', function() {
-  let audioPlayer = document.getElementById('audioPlayer');
-  let audioSource = document.getElementById('audioSource');
-
-  // Cambia la fuente con la nueva canción
-  audioSource.src = "fireproof.mp3";
-
-  console.log('Cargando audio...');
-  // Carga el audio
-  audioPlayer.load();
-
-  // Reproduce el audio cuando el usuario haga clic en cualquier parte de la página
-  document.addEventListener('click', function() {
-      audioPlayer.play().catch(function(error) {
-          console.error("Error al intentar reproducir el audio: ", error);
-      });
-  });
-});
