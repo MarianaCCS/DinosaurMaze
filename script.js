@@ -274,14 +274,22 @@ function actualizarSidebar(side, photoUrl, phrase, rotationY = 0) {
   photoElement.style.transform = `rotateY(${rotationY}deg)`;
 }
 
+
+// update when the user interacts with the page
 document.addEventListener('DOMContentLoaded', function() {
   let audioPlayer = document.getElementById('audioPlayer');
   let audioSource = document.getElementById('audioSource');
 
-  // Actualiza la fuente con la nueva canción
-  audioSource.src = "fireproof.mp3";  // Cambia la URL de la canción
+  // Cambia la fuente con la nueva canción
+  audioSource.src = "fireproof.mp3";
 
-  // Reinicia el audio (en caso de que ya esté reproduciéndose) y reproduce la nueva canción
-  audioPlayer.load();  // Esto recarga el nuevo archivo de audio
-  audioPlayer.play();  // Reproduce el nuevo audio
+  // Carga el audio
+  audioPlayer.load();
+
+  // Reproduce el audio cuando el usuario haga clic en cualquier parte de la página
+  document.addEventListener('click', function() {
+      audioPlayer.play().catch(function(error) {
+          console.error("Error al intentar reproducir el audio: ", error);
+      });
+  });
 });
