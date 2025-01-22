@@ -283,6 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Cambia la fuente con la nueva canción
   audioSource.src = "fireproof.mp3";
 
+  console.log('Cargando audio...');
   // Carga el audio
   audioPlayer.load();
 
