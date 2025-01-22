@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❤️ Feliz San Valentín ❤️</title>
+  <link rel="stylesheet" href="styles.css">  <!-- Enlace al archivo CSS -->
+</head>
+<body>
+  <audio id="audioPlayer" style="display:none;" autoplay loop>
+    <source id="audioSource" src="fireproof.mp3" type="audio/mp3">  
+  </audio>
+
+  <!-- Formulario de entrada de contraseña -->
+  <div id="passwordForm">
+    <h2>Introduce la contraseña</h2>
+    <input type="password" id="passwordInput" placeholder="Contraseña">
+    <button onclick="verificarContraseña()">Acceder</button>
+  </div>
+
+  <!-- Contenido protegido que solo aparecerá después de introducir la contraseña correcta -->
+  <div id="contenidoProtegido" style="display:none;">
+    <div id="mazeContainer">
+        <img src="images/maze.png" alt="Laberinto" id="mazeImage" width="600">
+        
+        <!-- Dinosaur 1 -->
+        <img src="images/dino1.png" alt="Dinosaurio" id="dinosaur">
+
+        <!-- Dinosaur 2 -->
+        <img src="images/dino2.png" alt="Otra Imagen" id="dino2">
+
+          <!-- blank spaces -->
+          <div class="extremo" id="left-extremo"></div>  
+          <div class="extremo" id="right-extremo"></div> 
+
+          
+          <div class="extremo" id="top-extremo"></div><div id="heartContainer" class="heart-container" style="display: none;">
+            <img src="images/shadow_corazon.png" alt="Corazón" id="heartImage" style="width: 300px; height: 300px;">
+          </div>      
+    </div>
+
+
+    
+    <div id="leftSidebar" class="sidebar">
+      <img id="leftPhoto" class="photo" src="" alt="Photo">
+      <p id="leftPhrase" class="phrase"></p>
+    </div>
+    
+    <div id="rightSidebar" class="sidebar">
+      <img id="rightPhoto" class="photo" src="" alt="Photo">
+      <p id="rightPhrase" class="phrase"></p>
+    </div>
+
+    
+  </div>
+
+  <script src="script.js"></script>  <!-- Enlace al archivo JavaScript -->
+
+</body>
+</html>
